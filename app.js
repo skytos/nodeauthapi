@@ -1,7 +1,10 @@
 const express = require('express')
+const sqlite3 = require('sqlite3').verbose()
+const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
 const app = express()
+const db = new sqlite3.Database('users.db')
 
 app.get('/api', (req, res) => {
     res.json({
